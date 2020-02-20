@@ -42,11 +42,11 @@ $dateText = $_GET["dateToParse"];
       if (is_numeric($year))
       {
         //valid year provided
-        print  "year is " . $year;
+        print  "<br>year is " . $year;
       }
       else {
         // code...
-          print  "please provide correct year";
+          print  "<br>please provide correct year";
       }
 
 
@@ -66,6 +66,7 @@ $dateText = $_GET["dateToParse"];
         if( !$monthFound && in_array(strtolower($words[$i]),  $months))
         {
           $month = strtolower($words[$i]);
+          $monthNumber = $i+1;
           $monthFound = true;
         }
 
@@ -78,12 +79,14 @@ $dateText = $_GET["dateToParse"];
 
       if($descriptorFound && $monthFound && $dayFound)
       {
-        echo "all input available to continue to parse date";
+        echo "<br>all input available to continue to parse date<BR>";
+        $firstDateOfMonth = date_Create("1/".$monthNumber."/".$year);
+        echo date_format ($firstDateOfMonth, 'd/m/y');
 
       }
       else
       {
-        echo "invalid input";
+        echo "<BR>invalid input";
       }
 
 
