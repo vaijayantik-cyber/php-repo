@@ -66,7 +66,6 @@ $dateText = $_GET["dateToParse"];
         if( !$monthFound && in_array(strtolower($words[$i]),  $months))
         {
           $month = strtolower($words[$i]);
-          $monthNumber = $i+1;
           $monthFound = true;
         }
 
@@ -80,7 +79,7 @@ $dateText = $_GET["dateToParse"];
       if($descriptorFound && $monthFound && $dayFound)
       {
         echo "<br>all input available to continue to parse date<BR>";
-        $firstDateOfMonth = date_Create("1/".$monthNumber."/".$year);
+        $firstDateOfMonth = date_Create("1/".$month."/".$year);
         echo date_format ($firstDateOfMonth, 'd/m/y');
 
       }
